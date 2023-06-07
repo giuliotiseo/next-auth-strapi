@@ -46,7 +46,7 @@ const handler = NextAuth({
         email: token.user.email,
         accessToken: token.jwt
       }
-
+      
       return session;
     }
   }

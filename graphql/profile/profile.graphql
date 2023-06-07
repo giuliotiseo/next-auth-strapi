@@ -1,0 +1,72 @@
+query GetProfile($username: String) {
+  profiles(filters: { username: { eq: $username }}) {
+		data {
+			id
+      __typename
+      attributes {
+        name
+        surname
+        avatar
+        phone
+        region
+        province
+        city
+      	birthday
+        curriculum {
+					data {
+            id
+            __typename
+            attributes {
+              name
+              url
+              createdAt
+            }
+          }
+        }
+        company {
+          __typename
+          data {
+            id
+            __typename
+            attributes {
+              slug
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation CreateProfile($data: ProfileInput!) {
+	createProfile(data: $data) {
+    data {
+      id
+      __typename
+      attributes {
+        username
+      }
+    }
+  }
+}
+
+mutation UpdateProfile($id: ID!, $data: ProfileInput!) {
+	updateProfile(id: $id, data: $data) {
+		__typename
+    data {
+      id
+      __typename
+      attributes {
+        name
+        surname
+        avatar
+        phone
+        region
+        province
+        city
+        birthday
+      } 
+    }
+  }
+}

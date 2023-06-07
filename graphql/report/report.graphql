@@ -1,0 +1,90 @@
+query GetReports($username: String) {
+  reports(
+  pagination: { limit: 999 },
+  filters: {
+    user: {
+      username: {
+        eq: $username
+      }
+    }
+  }) {
+    __typename
+    data {
+			id
+      __typename
+      attributes {
+				name
+        slug
+        test {
+          __typename
+          data {
+            id
+            __typename
+            attributes {
+							name
+              slug
+              description
+              forms(pagination: { limit: 999 }) {
+                data {
+                  id
+                  attributes {
+                    options {
+                      id
+                      key
+                      value
+                    }
+                  }
+                }
+              }
+              feedbacks {
+                __typename
+                data {
+                  id
+                  __typename
+                  attributes {
+                    title
+                    description
+                    isPercentageResult
+                    embed
+                    min
+                    max
+                    textResult
+                  }
+                }
+              }
+            }
+          }
+        }
+        answers(pagination: { limit: 999 }) {
+          __typename
+          data {
+            id
+            __typename
+            attributes {
+							name
+              form {
+                __typename
+                data {
+                  id
+                  __typename
+                  attributes {
+                    title
+                    description
+                    slug
+                  }
+                }
+              }
+              note
+              result {
+                id
+                key
+                value
+                __typename
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

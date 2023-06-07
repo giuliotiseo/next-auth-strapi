@@ -1,0 +1,13 @@
+# Write your query or mutation here
+query GetCompanies {
+  companies(pagination: { limit: 999 }) {
+    data {
+      id
+      __typename
+      attributes {
+        name
+        slug
+      }
+    }
+  }
+}
