@@ -10,7 +10,7 @@ const LoginButton = () => {
   if(session && session.user) {
     return (
       <div className='flex gap-4 ml-auto'>
-        <p>{session.user.name}</p>
+        <p>{session.user.username}</p>
         <button onClick={() => signOut()} className='text-red-600'>
           Sign out
         </button>
