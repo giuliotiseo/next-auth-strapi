@@ -31,8 +31,6 @@ const client = new ApolloClient({
 
 
 const NextApolloProvider:FC<PropsWithChildren<{}>> = ({ children }) => {
-  console.log("Client", client)
-
   return <ApolloProvider client={client}>
     { children }
   </ApolloProvider>

@@ -1,16 +1,35 @@
 "use client"
+import localFont from 'next/font/local';
+import { Outfit } from 'next/font/google';
 import AppBar from '@/components/AppBar'
 import Providers from '../components/Providers'
-import './globals.css'
-import { Inter } from 'next/font/google'
 import NextApolloProvider from '../../graphql/apollo'
+import './globals.css'
+import { Metadata } from 'next';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
 
-const inter = Inter({ subsets: ['latin'] })
+// Fonts config ------------------------------------------------------------------------
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+});
 
-export const metadata = {
-  title: 'Anapia Orienta',
-  description: 'Ti orientiamo a scoprire il tuo potenziale e a riconoscere il tuo talento professionale.',
-}
+const switzer = localFont({
+  src: [
+    {
+      path: '../assets/typography/Switzer-Light.woff2',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../assets/typography/Switzer-Light.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-switzer'
+})
 
 export default function RootLayout({
   children,
@@ -19,12 +38,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         <Providers>
-          <AppBar />
-          <NextApolloProvider>
+          <div className={`${outfit.variable} ${switzer.variable} font-sans`}>
+            <Header />
             {children}
-          </NextApolloProvider>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

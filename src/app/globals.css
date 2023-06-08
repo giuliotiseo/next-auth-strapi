@@ -2,26 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input.text-white::placeholder {
+  opacity: 0.5;
+  color: #EEF1F7;
+}
+
+input.text-dark::placeholder {
+  opacity: 0.4;
+  color: #0A172E;
+}
+
+.safe-screen {
+  min-height: calc(100vh - 100px);
+}
+
+.body-page h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #cdcdcd;
+}
+
+/* Backgrounds ---------------------------------------------------------------------------------------------------------------------------------------------------- */
+@layer components {
+  .btn-fill {
+    @apply rounded-full border border-white text-white bg-primary py-2 px-6 font-bold font-title;
+  }
+
+  .btn-fill-secondary {
+    @apply rounded-full text-primary bg-secondary border-2 border-primary py-2 px-6 font-bold font-title;
+  }
+
+  .btn-fill--white {
+    @apply rounded-full border border-white text-primary bg-white hover:bg-opacity-80 py-2 px-6 font-bold font-title transition-all;
+  }
+
+  .btn-outline--white {
+    @apply rounded-full border-2 border-white text-white bg-transparent py-2 px-6 font-bold box-border font-title hover:bg-lightBlue hover:bg-opacity-10 transition-all;
+  }
+
+  .btn-outline--primary {
+    @apply rounded-full border-2 border-primary text-primary bg-transparent py-2 px-6 font-bold box-border font-title hover:bg-lightBlue transition-all;
+  }
+
+  .primaryGradient {
+    @apply bg-gradient-to-r from-primary to-[#1984F0];
+  }
+
+  .secondaryGradient {
+    @apply bg-gradient-to-r from-secondary to-[#D69300];
+  }
 }

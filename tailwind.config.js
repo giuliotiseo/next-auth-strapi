@@ -7,10 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        title: ['var(--font-outfit)'],
+        sans: ['var(--font-switzer)'],
+      },
+      colors: {
+        primary: "#0D66C4",
+        secondary: "#FDC500",
+        lightBlue: "#EEF1F7",
+        light: "#FCFAF9",
+        dark: "#0A172E"
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'service': "url('/test/test-bg.png')",
       },
     },
   },

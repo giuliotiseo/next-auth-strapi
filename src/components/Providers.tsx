@@ -2,6 +2,8 @@
 
 import React, { ReactNode } from 'react'
 import { SessionProvider } from "next-auth/react"
+import NextApolloProvider from '../../graphql/apollo';
+import { MantineProvider } from '@mantine/core';
 
 interface Props {
   children: ReactNode;
@@ -10,7 +12,11 @@ interface Props {
 const Providers = ({ children }:Props) => {
   return (
     <SessionProvider>
-      { children }
+      <NextApolloProvider>
+        <MantineProvider>
+          { children }
+        </MantineProvider>
+      </NextApolloProvider>
     </SessionProvider>
   )
 }
