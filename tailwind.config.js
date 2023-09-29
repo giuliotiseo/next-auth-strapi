@@ -8,19 +8,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        title: ['var(--font-outfit)'],
-        sans: ['var(--font-switzer)'],
+        title: ['var(--font-montserrat)'],
+        sans: ['var(--font-source_sans_pro)'],
       },
       colors: {
-        primary: "#0D66C4",
-        secondary: "#FDC500",
+        primary: "#049CA4",
+        secondary: "#319ED7",
         lightBlue: "#EEF1F7",
-        light: "#FCFAF9",
-        dark: "#0A172E"
+        light: "#FFFBFB",
+        dark: "#1C232E"
       },
-      backgroundImage: {
-        'service': "url('/test/test-bg.png')",
-      },
+      // backgroundImage: {
+      //   'service': "url('/test/test-bg.png')",
+      // },
     },
   },
   plugins: [],

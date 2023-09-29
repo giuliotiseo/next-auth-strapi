@@ -1,9 +1,11 @@
 "use client";
-
-import React, { ReactNode } from 'react'
-import { SessionProvider } from "next-auth/react"
-import NextApolloProvider from '../../graphql/apollo';
+import { ThemeProvider } from 'react-jss';
 import { MantineProvider } from '@mantine/core';
+import React, { ReactNode } from 'react';
+import { SessionProvider } from "next-auth/react";
+import NextApolloProvider from '../../graphql/apollo';
+import { theme } from '@/theme';
+import mantineTheme from '../theme/mantine';
 
 interface Props {
   children: ReactNode;
@@ -11,13 +13,15 @@ interface Props {
 
 const Providers = ({ children }:Props) => {
   return (
-    <SessionProvider>
-      <NextApolloProvider>
-        <MantineProvider>
-          { children }
-        </MantineProvider>
-      </NextApolloProvider>
-    </SessionProvider>
+    <ThemeProvider theme={theme({ name: 'light' })}>
+      <MantineProvider theme={mantineTheme}>
+        <SessionProvider>
+          <NextApolloProvider>
+            { children }
+          </NextApolloProvider>
+        </SessionProvider>
+      </MantineProvider>
+    </ThemeProvider>
   )
 }
 

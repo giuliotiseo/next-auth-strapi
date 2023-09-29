@@ -4,7 +4,7 @@ import { setContext } from '@apollo/client/link/context'
 import { getSession } from "next-auth/react"
 const { createUploadLink } = require('apollo-upload-client')
 
-const GRAPHQL_ENDPOINT = "https://strapi.anapiaorienta.it/graphql"
+const GRAPHQL_ENDPOINT = "http://localhost:1337/graphql"
 
 const httpLink = createUploadLink({
   uri: GRAPHQL_ENDPOINT,

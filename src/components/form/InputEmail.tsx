@@ -16,16 +16,16 @@ const InputEmail = ({
   className = "",
   label = "Email",
   withAsterisk = false,
-  labelColor = "white"
+  labelColor = "#0A172E"
 }: Props) => {
   return (  
     <TextInput
       value={value}
       onChange={(event) => setValue(event.currentTarget.value)}
-      icon={<TbAt size="0.8rem" />}
+      icon={<TbAt size="1.2rem" />}
       className={`text-lg ${className}`}
       label={label}
-      labelProps={{ style: { color: labelColor, fontSize: 14 }}}
+      labelProps={{ style: { color: labelColor, fontSize: 16 }}}
       size='lg'
       type='email'
       withAsterisk={withAsterisk}
